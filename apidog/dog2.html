@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>lista de raças </h1>
+    <div><button id="btngetrace">clique aqui</button></div>
+    <div id="res"></div>
+    <script>
+        const btngetrace= document.getElementById("btngetrace")
+        const res= document.getElementById("res")
+        btngetrace.addEventListener('click', ()=>{
+            fetch('https://dog.ceo/api/breeds/list/all')
+            .then(res=> res.json())
+            .then(date=>{
+                let lista='';
+                for (let raca of Object.keys(date['message'])){
+                    lista+= raca+"<br>"
+                }
+                res.innerHTML=lista
+            })
+.catch(error=> error.message('tem um erro aqui'), error)
+        })
+
+    </script>
+</body>
+</html>

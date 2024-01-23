@@ -1,0 +1,84 @@
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size:xx-large;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+
+    .form-group .signup-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .form-group .signup-link:hover {
+      text-decoration: underline;
+    }
+    header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        button{
+            background-color: black;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: x-large;
+        font-weight: 400;
+        color: white;
+        border: 3px solid rgb(90, 87, 87);
+        border-radius: 10px;
+        font-variant: small-caps;
+   
+}
+button:hover{
+    background-color: rgb(18, 156, 18);
+}

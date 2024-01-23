@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>imagem aleatoria de cachorro</h1>
+    <div><button id="btnGetImage">obter nova imagem</button></div>
+    <div><img id="dogimage" src=""></div>
+    <script>
+      const btnGetImage=document.getElementById("btnGetImage")
+      const dogimage= document.getElementById("dogimage")
+      btnGetImage.addEventListener('click', ()=>{
+        fetch('https://dog.ceo/api/breeds/image/random')
+        .then(response=> response.json())
+        .then(data=>{
+            const imageUrl= data.message;
+            dogimage.src=imageUrl
+        })
+        .catch(error=> console.error('tem um erro aqui', error));
+      })
+      btnGetImage.click()
+    </script>
+</body>
+</html>

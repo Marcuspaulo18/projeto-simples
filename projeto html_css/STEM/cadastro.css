@@ -1,0 +1,89 @@
+body {
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+  }
+  button:hover{
+      background-color: rgb(18, 156, 18);
+  }
+  select[id="plano"] {
+      width: 100%;
+    padding: 8px;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+  }
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    cursor:pointer
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+   input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  form{
+      background-color: #fff;
+      border: 5px solid #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      padding:10px;
+        max-width: 400px;
+       margin-left: 40%;
+       margin-right: 5%;
+  }
+  header {
+              background-color: #333;
+              padding: 20px;
+              color: #fff;
+              text-align: center;
+              width: 100%;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          }
+          button{
+              background-color: black;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size: x-large;
+          font-weight: 400;
+          color: white;
+          border: 3px solid rgb(90, 87, 87);
+          border-radius: 10px;
+          font-variant: small-caps;
+     
+  }
+  

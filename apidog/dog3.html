@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>imagem aleatória de cachorro</h1>
+    <div><button id="btnGetImage">obter nova imagem</button></div>
+    <div>
+        <select name="btngetrace" id="btngetrace">
+   
+        </select>
+    </div>
+    <div><img id="dogimage" src=""></div>
+    <script>
+        const btnGetImage = document.getElementById("btnGetImage");
+        const dogimage = document.getElementById("dogimage");
+        const btngetraces = document.getElementById("btngetrace");
+
+       
+        function populateBreeds() {
+            fetch('https://dog.ceo/api/breeds/list/all')
+                .then(response => response.json())
+                .then(data => {
+                    let options = "<option value=''>Selecione uma raça</option>";
+                    for (let breed of Object.keys(data.message)) {
+                        options += `<option value="${breed}">${breed}</option>`;
+                    }
+                    btngetraces.innerHTML = options;
+                })
+                .catch(error => console.error('Erro ao obter as raças:', error));
+        }
+
+        function displayRandomImage(breed) {
+            fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+                .then(response => response.json())
+                .then(data => {
+                    const imageUrl = data.message;
+                    dogimage.src = imageUrl;
+                })
+                .catch(error => console.error('Erro ao obter a imagem:', error));
+        }
+
+        btnGetImage.addEventListener('click', () => {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => response.json())
+                .then(data => {
+                    const imageUrl = data.message;
+                    dogimage.src = imageUrl;
+                })
+                .catch(error => console.error('Erro ao obter a imagem:', error));
+        });
+
+        btngetraces.addEventListener('change', () => {
+            const selectedBreed = btngetraces.value;
+            if (selectedBreed) {
+                displayRandomImage(selectedBreed);
+            }
+        });
+
+   
+        populateBreeds();
+    </script>
+</body>
+</html>

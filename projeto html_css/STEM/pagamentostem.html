@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pagamento.css">
+
+  <title>Pagamento-STEM</title>
+</head>
+<body>
+    <header>
+        
+        <h1>STEM </h1>   
+        <nav>
+           <button> <a>cursos e modulos</a></button>
+            <button><a >planos</a > </button>
+           <button> <a >Cadastro</a ></button>
+<button><a>login</a></button>
+<button><a>area do aluno</a></button>
+<button><a>inicio</a></button>
+        </nav>
+    </header>
+    <br><br>
+  <div class="container">
+    <h2>Pagamento</h2>
+    <form>
+      <div class="form-group">
+        <label for="payment-method">Método de pagamento:</label>
+        <select id="payment-method" name="payment-method">
+          <option value="credit-card">Cartão de crédito</option>
+          <option value="pix">PIX</option>
+          <option value="boleto">Boleto bancário</option>
+        </select>
+      </div>
+
+      <div id="credit-card-fields">
+        <div class="form-group">
+          <label for="name">Nome no cartão:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="card-number">Número do cartão:</label>
+          <input type="text" id="card-number" name="card-number" required>
+        </div>
+        <div class="form-group">
+          <label for="expiry-date">Data de validade:</label>
+          <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required>
+        </div>
+        <div class="form-group">
+            <label for="installments">Parcelamento:</label>
+            <select id="installments" name="installments">
+              <option value="1">À vista</option>
+              <option value="3">3 vezes</option>
+              <option value="12">12</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit">Entrar</button>
+      </div>

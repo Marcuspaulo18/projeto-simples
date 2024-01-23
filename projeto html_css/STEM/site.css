@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-size: larger;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: medium;
+    color: #555;
+    margin-bottom: 20px;
+}
+button:hover{
+background-color: rgb(18, 156, 18);
+}
+.cta-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+.course-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.course {
+    width: 30%;
+    padding: 10px;
+    background-color:#a7a08a ;
+    border-radius: 4px;
+    margin: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.course img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.payment {
+    width: 30%;
+    padding: 20px;
+    background-color: #a7a08a;
+    border-radius: 4px;
+    margin: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    color: #f9f9f9;
+}
+
+.contact-option {
+    margin: 0 10px;
+    color: #f9f9f9;
+}
+
+.contact-option a {
+    color:black;
+    text-decoration: none;
+                color: #f9f9f9;
+}
+
+.imagem {
+margin-right: 600px; 
+width: 150px;
+}
+button{
+background-color: black;
+font-family:Arial, Helvetica, sans-serif;
+font-size: x-large;
+font-weight: 400;
+color: white;
+border: 3px solid rgb(90, 87, 87);
+border-radius: 10px;
+font-variant: small-caps;
+}
+.logo{
+    border: 3px solid rgb(255, 254, 254);
+border-radius: 100%;
+}
