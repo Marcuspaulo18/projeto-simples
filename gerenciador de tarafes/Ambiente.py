@@ -1,6 +1,6 @@
 class gerenciador_de_tarefas:
 
-    def __list__(self):
+    def __init__(self):
         self.tarefas = []
 
     def adicionar_tarefa(self, nome, categoria, descricao):
@@ -44,9 +44,9 @@ def main():
     gerenciador = gerenciador_de_tarefas()
 
     while True:  
-        print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/")
+        print("---------------------------------------------")
         print("-__--__--__GERENCIADOR DE TAREFAS__--__--__-")
-        print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/")
+        print("---------------------------------------------")
         print("Selecionar opções:")
         print("1:Adicionar tarefas")
         print("2:Listar tarefas")
