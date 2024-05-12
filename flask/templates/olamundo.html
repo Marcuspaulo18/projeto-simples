@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teste</title>
+</head>
+<body><center>
+<header><h1>sites luminosos para testes curiosos</h1></header>
+<section>
+    <h1>ola mundo mais uma vez testando programas</h1>
+    <label>
+{%for x in content%}
+        <p>{{x}}</p>
+{%endfor%}
+
+    </label>
+    <label>
+<P>impressão de numeros pares:</P>
+           {% for x in range(10) %}
+        {%if x%2==0%}
+             <p>{{x}}</p>
+        {%else%}
+          <p>x</p>
+        {%endif%}
+        {%endfor%}
+        <P>impressão de numeros impares:</P>
+           {% for x in range(10) %}
+        {%if x%2==1%}
+             <p>{{x}}</p>
+        {%endif%}
+        {%endfor%}
+    </label>
+</section></center>
+</body>
+</html>
