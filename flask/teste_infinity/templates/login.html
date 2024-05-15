@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color:grey;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        header{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+            padding:3px;
+        }
+        .p1{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <center>
+        <h1>Calculadora de distancias</h1>
+       <a href="/login"> <button  class="p1">login</button></a>
+       <a href="/cadastro"> <button  class="p1">cadastro</button></a>
+        </center>
+        <br>
+    </header>
+    <br>
+    <center><form action="" method="post">
+    <h2>Página de Login</h2>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="submit" value="Login">
+
+
+      <p>Não possui uma conta?</p> <a href="/cadastro"> <button  class="p1">Cadastre-se</button></a>    </form>
+    </center>
+</body>
+</html>

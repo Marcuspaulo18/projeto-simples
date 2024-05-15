@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrativo de Entrega</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+            color:white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resultado {
+            font-weight: bold;
+        }
+        header{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+            padding:3px;
+        }
+        .p1{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <center>
+        <h1>Calculadora de distancias</h1>
+       <a href="/demonstrar"> <button class="p1">home</button></a>
+       <a href="/login"> <button  class="p1">login</button></a>
+       <a href="/cadastro"> <button  class="p1">cadastro</button></a>
+        </center>
+        <br>
+    </header>
+    <br>
+    <div class="container">
+        <center>
+        <h2>Demonstrativo de Entrega</h2>
+        <form id="form-distancia">
+            <label for="endereco">Endereço de Destino:</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Digite o endereço de destino" required>
+            <input type="submit" value="Calcular Distância e Tempo de Entrega">
+        </form>
+        <div id="resultado"></div>
+    </div>
+</center>
+    <script>
+        document.getElementById('form-distancia').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var enderecoDestino = document.getElementById('endereco').value;
+            
+            // Requisição para a API do TomTom para obter as coordenadas do endereço digitado
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var resposta = JSON.parse(xhr.responseText);
+                    var latitude = resposta.results[0].position.lat;
+                    var longitude = resposta.results[0].position.lon;
+
+                    // Coordenadas do local de origem (por exemplo, sua localização)
+                    var minhaLatitude = 0; // Substitua 0 pela sua latitude
+                    var minhaLongitude = 0; // Substitua 0 pela sua longitude
+
+                    // Função para calcular a distância usando a fórmula de Haversine
+                    function calcularDistancia(lat1, lon1, lat2, lon2) {
+                        var R = 6371; // Raio da Terra em quilômetros
+                        var dLat = (lat2 - lat1) * Math.PI / 180;
+                        var dLon = (lon2 - lon1) * Math.PI / 180;
+                        var a =
+                            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                        var distancia = R * c;
+                        return distancia; // Retorna a distância em quilômetros
+                    }
+
+                    // Calcula a distância entre o local de origem e o destino
+                    var distanciaKm = calcularDistancia(minhaLatitude, minhaLongitude, latitude, longitude);
+
+                    // Calcula o tempo de entrega em horas
+                    var velocidadeMedia = 80; // Velocidade média em km/h
+                    var tempoHoras = distanciaKm / velocidadeMedia;
+
+                    // Atualiza o elemento 'resultado' com a distância e o tempo de entrega
+                    document.getElementById('resultado').innerHTML = 'Distância: ' + distanciaKm.toFixed(2) + ' km<br>Tempo de Entrega: ' + tempoHoras.toFixed(2) + ' horas';
+                }
+            };
+            xhr.open('GET', 'https://api.tomtom.com/search/2/geocode/' + encodeURIComponent(enderecoDestino) + '.json?key={TOMTOM_API_KEY}', true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
