@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrativo de Entrega</title>
+    <!-- Estilos CSS -->
+    <style>
+        /* Estilos para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+            color:white;
+        }
+        /* Estilos para o contêiner principal */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilos para o formulário */
+        form {
+            margin-bottom: 20px;
+        }
+        /* Estilos para os rótulos do formulário */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        /* Estilos para os campos de entrada de texto */
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        /* Estilos para o botão de envio do formulário */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Estilos para o resultado */
+        #resultado {
+            font-weight: bold;
+        }
+        /* Estilos para o cabeçalho */
+        header{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+            padding:3px;
+        }
+        /* Estilos para os botões do cabeçalho */
+        .p1{
+            background-color:black;
+            color:white;
+            border: 1px solid white;
+            border-radius:2px;
+        }
+        /* Estilos para o contêiner secundário */
+        div{
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Biblioteca jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <center>
+        <h1>Calculadora de distâncias</h1>
+        <!-- Botões de login e cadastro -->
+        <a href="/login"><button class="p1">login</button></a>
+        <a href="/cadastro"><button class="p1">cadastro</button></a>
+        </center>
+        <br>
+    </header>
+    <br>
+    <!-- Contêiner principal -->
+    <div class="container">
+        <center>
+        <h2>Demonstrativo de Entrega</h2>
+
+        <!-- Formulário para calcular entrega -->
+        <form id="calcular_entrega" method='post' action='/calcular_entrega'>
+            <label for="cep_pi">CEP de destino:</label>
+            <input type="text" id="cep_pi" name="cep_pi" placeholder="Digite o CEP de destino" required>
+            <label for="endereco_pi">Endereço de Destino:</label>
+            <input type="text" id="endereco_pi" name="endereco_pi" placeholder="Digite o endereço de destino" required>
+            <label for="cep_pf">CEP remetente:</label>
+            <input type="text" id="cep_pf" name="cep_pf" placeholder="Digite o CEP de destino" required>
+            <label for="endereco_pf">Endereço remetente:</label>
+            <input type="text" id="endereco_pf" name="endereco_pf" placeholder="Digite o endereço de destino" required>
+            <input type="submit" value="Calcular Distância e Tempo de Entrega">
+        </form>
+
+        <!-- Exibição do resultado -->
+        <div id="resultado"></div>
+        </center>
+    </div>
+    <!-- Script JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // Evento de envio do formulário
+            $('#calcular_entrega').on('submit', function(event) {
+                event.preventDefault();
+
+                // Obtenção dos dados do formulário
+                var formData = {
+                    cep_pi: $('#cep_pi').val(),
+                    endereco_pi: $('#endereco_pi').val(),
+                    cep_pf: $('#cep_pf').val(),
+                    endereco_pf: $('#endereco_pf').val()
+                };
+
+                // Requisição AJAX para calcular entrega
+                $.ajax({
+                    url: '/calcular_entrega',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        // Exibição do resultado
+                        $('#resultado').html('<p>Distância: ' + response.distancia + '</p><p>Tempo: ' + response.tempo + '</p>');
+                    },
+                    error: function(xhr, status, error) {
+                        // Exibição de erro, se houver
+                        var errorMessage = xhr.status + ': ' + xhr.statusText;
+                        $('#resultado').html('<p>Erro - ' + errorMessage + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
