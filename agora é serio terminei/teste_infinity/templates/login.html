@@ -60,18 +60,6 @@
             cursor: pointer; /* Cursor do mouse ao passar sobre o botão de envio */
         }
     </style>
-    <script>
-        // Função para exibir alertas com base no status e redirecionar
-        window.onload = function() {
-            const status = '{{ status }}';
-            if (status === 'success') {
-                alert('Login realizado com sucesso!');
-                window.location.href = '/calcular_entrega';
-            } else if (status === 'fail') {
-                alert('Falha ao realizar o login. Tente novamente.');
-            }
-        }
-    </script>
 </head>
 <body>
     <!-- Cabeçalho da página -->
