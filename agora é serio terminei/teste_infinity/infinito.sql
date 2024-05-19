@@ -1,6 +1,5 @@
 create database infinito;
 use infinito;
-drop table cadastro;
 create table cadastro(
 cadastro_id int auto_increment primary key not null,
 cadastro_usuario varchar(60) not null,
