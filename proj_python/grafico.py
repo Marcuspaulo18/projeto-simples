@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# Cria um grafo
+
 G = nx.DiGraph()
 
-# Adiciona os nós com os componentes principais e suas formas
+
 componentes = {
     'Frontend': ('Frontend\n(Desktop, Mobile, Apple Watch)', 'ellipse'),
     'Backend': ('Backend\n(Serviços)', 'ellipse'),
@@ -15,7 +15,7 @@ componentes = {
     'Lançamento': ('Lançamento', 'ellipse')
 }
 
-# Adiciona os nós ao grafo
+
 for key, value in componentes.items():
     G.add_node(key, label=value[0], shape=value[1])
 
@@ -32,7 +32,7 @@ for detail, shape in backend_details:
     G.add_node(detail, label=detail, shape=shape)
     G.add_edge('Backend', detail)
 
-# Adiciona os detalhes como nós e as arestas para IA e ML
+
 ia_ml_details = [
     ('Visão\nComputacional', 'box'),
     ('Processamento\nLinguagem Natural', 'box'),
@@ -44,7 +44,7 @@ for detail, shape in ia_ml_details:
     G.add_node(detail, label=detail, shape=shape)
     G.add_edge('IA_ML', detail)
 
-# Adiciona os detalhes como nós e as arestas para Base de Dados e Armazenamento
+
 bd_armazenamento_details = [
     ('Banco de Dados\nUsuários/Perfis', 'box'),
     ('Banco de Dados\nEducacional', 'box'),
@@ -56,7 +56,7 @@ for detail, shape in bd_armazenamento_details:
     G.add_node(detail, label=detail, shape=shape)
     G.add_edge('BD_Armazenamento', detail)
 
-# Adiciona as conexões principais
+
 conexoes = [
     ('Frontend', 'Backend'),
     ('Backend', 'IA_ML'),
@@ -68,7 +68,7 @@ conexoes = [
 
 G.add_edges_from(conexoes)
 
-# Configurações para o layout do grafo com posições fixas
+
 pos = {
     'Frontend': (0, 0),
     'Backend': (2, 0),
@@ -92,17 +92,16 @@ pos = {
     'Histórico\nde Configurações': (9, -2)
 }
 
-# Plot
+
 plt.figure(figsize=(16, 12))
 
-# Desenha os nós principais com uma forma específica
+
 nx.draw_networkx_nodes(G, pos, nodelist=[key for key in componentes.keys()], node_shape='o', node_size=4000, node_color="lightblue")
 nx.draw_networkx_nodes(G, pos, nodelist=[detail for detail, shape in backend_details + ia_ml_details + bd_armazenamento_details], node_shape='s', node_size=3000, node_color="lightgreen")
 
-# Desenha as arestas
+
 nx.draw_networkx_edges(G, pos)
 
-# Desenha os rótulos com um offset para evitar sobreposição
 offset = 0.1
 for key, (x, y) in pos.items():
     plt.text(x, y + offset, s=G.nodes[key]['label'], bbox=dict(facecolor='white', alpha=0.5), horizontalalignment='center', fontsize=9, fontweight="bold")
