@@ -8,7 +8,7 @@ import googlemaps
 app = Flask(__name__, template_folder="templates")
 
 # Chave de API do Google Maps
-API_KEY = 'AIzaSyDSAMZLmYUKij2oZDWtqFQOgJwtq7G_DBo'
+API_KEY = 'vai no site da google:3'
 
 # Inicialização do cliente Google Maps
 gmaps = googlemaps.Client(key=API_KEY)
