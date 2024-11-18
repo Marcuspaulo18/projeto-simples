@@ -1,0 +1,10 @@
+Resultado da Análise:
+Imagem: exemplo.png
+Resultado: Útil para bioplástico
+Categorias e Probabilidades:
+- plástico: 85.20%
+- vegetal: 10.10%
+- papel: 4.70%
+Empresa Destinada: as
+
+-------------------------

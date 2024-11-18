@@ -1,0 +1,11 @@
+Resultado da Análise:
+Imagem: Imagem carregada
+Resultado: Categoria Predita:
+plastic_bag (62.50%)
+Categorias e Probabilidades:
+- plastic_bag: 62.50%
+- water_bottle: 27.02%
+- water_jug: 1.89%
+Empresa Destinada: calango
+
+-------------------------
